@@ -82,6 +82,9 @@ local function GetFramePosition(Parent,AbsolutePosition)
 end
 
 function Create_Ripple(Parent : Frame)
+	if Confix.UseSound then
+		SoundData.Click:Play()
+	end
 	local ripple = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
 	local UIStroke = Instance.new('UIStroke',ripple)
