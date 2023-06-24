@@ -10,7 +10,7 @@ local Tween = game:GetService('TweenService')
 local UserinputService = game:GetService('UserInputService')
 local ShowerUI = game:FindFirstChild('CoreGui') or game:GetService('Players').LocalPlayer.PlayerGui
 local Mouse = game:GetService('Players').LocalPlayer:GetMouse()
-local StartSize = UDim2.new(0.45,0,0.45,0)
+local StartSize = UDim2.new(0.35,0,0.35,0)
 
 local function CreateSound(ID,Volume)
 	local sound = Instance.new('Sound')
