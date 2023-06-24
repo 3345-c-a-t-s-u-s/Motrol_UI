@@ -1,6 +1,6 @@
 -- export = มีไว้ให้ควายถาม
 
-_G.VerUI = 0.8
+_G.VerUI = 0.9
 
 print(_G.VerUI)
 
