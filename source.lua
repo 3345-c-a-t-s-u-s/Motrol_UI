@@ -1,4 +1,4 @@
--- มีไว้ให้ควายถาม
+-- export = มีไว้ให้ควายถาม
 export type ConfixStart = {any} & {
 	Title : string;
 	ToggleKey : Enum.KeyCode;
