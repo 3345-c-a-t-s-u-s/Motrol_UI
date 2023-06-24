@@ -1221,7 +1221,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 					Motrol_UI.Enabled = false
 				end
 			else
-				Tween:Create(program,TweenInfo.new(0.3,Enum.EasingStyle.Back),{Size = program:GetAttribute('SizeOpen') or UDim2.new(0.45,0,0.45,0)}):Play()
+				Tween:Create(program,TweenInfo.new(0.3,Enum.EasingStyle.Back),{Size = program:GetAttribute('SizeOpen') or StartSize}):Play()
 				Motrol_UI.Enabled = true
 			end
 		end
