@@ -1,6 +1,6 @@
 -- export = มีไว้ให้ควายถาม
 
-_G.VerUI = 0.4
+_G.VerUI = 0.8
 
 print(_G.VerUI)
 
@@ -868,6 +868,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 		function TabAssets:AddDropDown(ConfixDropdown : {Title : string;ListValue : {string};callback : FunctionalTest})
 			ConfixDropdown.callback = ConfixDropdown.callback or function() end
 			ConfixDropdown.ListValue = ConfixDropdown.ListValue or {}
+			CloseDropdown() -- re
 			local DropDownAssets = {}
 			local Dropdown = Instance.new("Frame")
 			local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
@@ -1238,7 +1239,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 	coroutine.wrap(function()
 		OnEffectStart()
 	end)()
-
+	CloseDropdown()
 	return MotrolAssets
 end
 
