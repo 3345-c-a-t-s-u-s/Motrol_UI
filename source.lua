@@ -1,6 +1,6 @@
 -- export = มีไว้ให้ควายถาม
 
-_G.VerUI = 0.9
+_G.VerUI = "1.1 - [มีไว้ให้ควายดู]"
 
 print(_G.VerUI)
 
@@ -82,9 +82,6 @@ local function GetFramePosition(Parent,AbsolutePosition)
 end
 
 function Create_Ripple(Parent : Frame)
-	if Confix.UseSound then
-		SoundData.Click:Play()
-	end
 	local ripple = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
 	local UIStroke = Instance.new('UIStroke',ripple)
@@ -1242,6 +1239,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 
 	coroutine.wrap(function()
 		OnEffectStart()
+		CloseDropdown()
 	end)()
 	CloseDropdown()
 	return MotrolAssets
