@@ -1,4 +1,9 @@
--- มีไว้ให้ควายถาม
+-- export = มีไว้ให้ควายถาม
+
+_G.VerUI = 0.4
+
+print(_G.VerUI)
+
 export type ConfixStart = {any} & {
 	Title : string;
 	ToggleKey : Enum.KeyCode;
@@ -216,7 +221,8 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 		DropDown_Button.TextTransparency = 0.320
 		DropDown_Button.TextWrapped = true
 		DropDown_Button.Text = Title
-
+		DropDown_Button.ZIndex = 9999999
+		
 		UIAspectRatioConstraint.Parent = DropDown_Button
 		UIAspectRatioConstraint.AspectRatio = 2.500
 
@@ -961,6 +967,8 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 					CloseDropdown()
 					return
 				end
+				CloseDropdown()
+				wait()
 				local Buttons = OnDropDown(ConfixDropdown.ListValue,Dropdown)
 				local ColistFUNCTION = {}
 				local Locked = nil
