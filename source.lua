@@ -1,4 +1,4 @@
--- export = มีไว้ให้ควายถาม
+-- มีไว้ให้ควายถาม
 export type ConfixStart = {any} & {
 	Title : string;
 	ToggleKey : Enum.KeyCode;
@@ -39,9 +39,9 @@ local function x00912(phon, ttjs)
 	if 
 		Result < 0 then 
 		Result = Result + ttjs 
-		
+
 	end
-	
+
 	return Result
 end
 
@@ -133,16 +133,16 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 	Confix.ToggleKey = Confix.ToggleKey or Enum.KeyCode.RightControl
 	Confix.ThemeColor3 = Confix.ThemeColor3 or Color3.fromRGB(45, 45, 45)
 	Confix.UseSound = Confix.UseSound or false
-	
+
 	local dragToggle = nil
 	local dragSpeed = 0.05
 	local dragStart = nil
 	local startPos = nil
 	local IsReady = false
-	
+
 	local MotrolAssets = {}
 	local Tab = {}
-	
+
 	local Motrol_UI = Instance.new("ScreenGui")
 	local program = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
@@ -165,10 +165,10 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 	local Dropcolor_2 = Instance.new("UIGradient")
 	local ScrollingFrame_2 = Instance.new("ScrollingFrame")
 	local UIListLayout_2 = Instance.new("UIListLayout")
-	
+
 	CreateMovement(ScrollingFrame,UIListLayout)
 	CreateMovement(ScrollingFrame_2,UIListLayout_2)
-	
+
 	local function OnEffectStart()
 		Blackground.Visible = false
 		DropDownShowed.Visible = false
@@ -191,11 +191,11 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 		ScrollingFrame.Visible = true
 		Tween:Create(Blackground,TweenInfo.new(1),{Position = UDim2.new(0, 0,0.117, 0)}):Play()
 		Tween:Create(ScrollingFrame,TweenInfo.new(1),{Position = UDim2.new(0.831, 0,0.042, 0)}):Play()
-		
+
 		wait(1)
 		IsReady = true
 	end
-	
+
 	local function CreateDropDownButton(Title)
 		local DropDown_Button = Instance.new("TextButton")
 		local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
@@ -216,20 +216,20 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 		DropDown_Button.TextTransparency = 0.320
 		DropDown_Button.TextWrapped = true
 		DropDown_Button.Text = Title
-		
+
 		UIAspectRatioConstraint.Parent = DropDown_Button
 		UIAspectRatioConstraint.AspectRatio = 2.500
 
 		UICorner.CornerRadius = UDim.new(0, 4)
 		UICorner.Parent = DropDown_Button
-		
+
 		UIStroke.Transparency = 0.450
 		UIStroke.Color = Confix.ThemeColor3:Lerp(Color3.fromRGB(255, 255, 255),1)
 		UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 		UIStroke.Parent = DropDown_Button
 		return DropDown_Button
 	end
-	
+
 	local function CloseDropdown()
 		DropDownShowed:SetAttribute('Toggle',false)
 		Tween:Create(DropDownShowed,TweenInfo.new(0.5),{Size = UDim2.new(0.2, 0,0, 0)}):Play()
@@ -240,7 +240,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 			end
 		end)()
 	end
-	
+
 	local function OnDropDown(Lists,dpbutton : Frame)
 		if not Lists then
 			return
@@ -269,7 +269,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 						local Target = (AbsolutePositionBD - MyAbsolutePosition)
 						local X = Target.X
 						local Y = Target.Y
-						
+
 						local Position = UDim2.new(0,X,0,Y,0) + UDim2.new(0,640,0,55)
 						Tween:Create(DropDownShowed,TweenInfo.new(0.35),{Position = Position}):Play()
 					end
@@ -282,12 +282,12 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 		end)()
 		return TargetButton;
 	end
-	
+
 	Motrol_UI.Name = "Motrol_UI"
 	Motrol_UI.Parent = ShowerUI
 	Motrol_UI.ResetOnSpawn = false
 	Motrol_UI.IgnoreGuiInset = true
-	
+
 	program.Name = "program"
 	program.Parent = Motrol_UI
 	program.Active = true
@@ -435,7 +435,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout_2.Padding = UDim.new(0, 6)
-	
+
 	function MotrolAssets:NewTab(Title)
 		if not IsReady then
 			repeat task.wait() until IsReady
@@ -468,7 +468,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 		Tab_Button.TextTransparency = 0.010
 		Tab_Button.TextWrapped = true
 		Tab_Button.ClipsDescendants = true
-		
+
 		UIAspectRatioConstraint.Parent = Tab_Button
 		UIAspectRatioConstraint.AspectRatio = 2.500
 
@@ -524,13 +524,13 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 		UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout.Padding = UDim.new(0, 6)
-		
+
 		CreateMovement(ScrollingFrame,UIListLayout)
 		if #Tab == 0 then
 			TabFrame.Visible = true
-			
+
 		else
-			
+
 			TabFrame.Visible = false
 		end
 		table.insert(Tab,TabFrame)
@@ -548,7 +548,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 			end
 			return
 		end)
-		
+
 		if Confix.UseSound then
 			Tab_Button.MouseEnter:Connect(function()
 				SoundData.Hover:Play()
@@ -562,7 +562,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 				return
 			end
 			local LabelFunction = {}
-			
+
 			local Label = Instance.new("Frame")
 			local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 			local UICorner = Instance.new("UICorner")
@@ -585,7 +585,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 
 			UICorner.CornerRadius = UDim.new(0, 4)
 			UICorner.Parent = Label
-			
+
 			UIStroke.Parent = Label
 			UIStroke.Thickness = 2.100
 			UIStroke.Transparency = 0.300
@@ -615,11 +615,11 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 			TextLabel.TextStrokeTransparency = 0.720
 			TextLabel.TextTransparency = 0.320
 			TextLabel.TextWrapped = true
-			
+
 			function LabelFunction:ChangeLabel(NewTitle)
 				TextLabel.Text = NewTitle or "Label Motrol UI"
 			end
-			
+
 			return LabelFunction
 		end
 		function TabAssets:AddButton(ConfixButton : {Title : string; callback : FunctionalTest})
@@ -650,7 +650,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 
 			UICorner.CornerRadius = UDim.new(0, 4)
 			UICorner.Parent = Button
-			
+
 			UIStroke.Parent = Button
 			UIStroke.Thickness = 2.100
 			UIStroke.Transparency = 0.300
@@ -696,9 +696,9 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 
 			UICorner_2.CornerRadius = UDim.new(0, 4)
 			UICorner_2.Parent = source
-			
+
 			Button_2.Text = ConfixButton.Title
-			
+
 			Button_2.MouseButton1Click:Connect(function()
 				Create_Ripple(Button)
 				if Confix.UseSound then
@@ -714,7 +714,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 			end
 			return AssetsButton
 		end
-		
+
 		function TabAssets:AddToggle(ConfixToggle : {Title : string; Default : boolean; callback : FunctionalTest})
 			if not ConfixToggle.Title then
 				return
@@ -750,7 +750,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 
 			UICorner.CornerRadius = UDim.new(0, 4)
 			UICorner.Parent = Toggle
-			
+
 			UIStroke.Parent = Toggle
 			UIStroke.Thickness = 2.100
 			UIStroke.Transparency = 0.300
@@ -792,7 +792,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 			Toggle_Point.Position = UDim2.new(0.851352572, 0, 0.484390259, 0)
 			Toggle_Point.Size = UDim2.new(0.699999988, 0, 0.699999988, 0)
 			Toggle_Point.SizeConstraint = Enum.SizeConstraint.RelativeYY
-			
+
 			UIStroke_2.Parent = Toggle_Point
 			UIStroke_2.Thickness = 2.100
 			UIStroke_2.Transparency = 0.400
@@ -813,15 +813,15 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 
 			UICorner_3.CornerRadius = UDim.new(0.335299999, 0)
 			UICorner_3.Parent = ToggleImage
-			
+
 			local function OnEffectButton(ImagId)
 				ToggleImage.Size = UDim2.new(0.6,0,0.6,0)
 				ToggleImage.Image = ImagId
 				ToggleImage.ImageTransparency = 1
-				
+
 				Tween:Create(ToggleImage,TweenInfo.new(0.3,Enum.EasingStyle.Back),{Size = UDim2.new(1,0,1,0),ImageTransparency = 0.1}):Play()
 			end
-			
+
 			local function ToggleTo(Value,Change)
 				if Value then
 					if Change then
@@ -835,30 +835,30 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 					OnEffectButton("rbxassetid://3944680095")
 				end
 			end
-			
+
 			Button.MouseButton1Click:Connect(function()
 				Create_Ripple(Toggle)
 				ToggleTo(ToggleDD,true)
 				ConfixToggle.callback(ToggleDD)
 			end)
-			
+
 			ToggleTo(not ToggleDD,true)
-			
+
 			function ToggleAssets:ChangeToggle(Traget)
 				ToggleTo(not Traget,true)
 			end
-			
+
 			function ToggleAssets:ChangeLabel(NewLabel)
 				Button = NewLabel
 			end
-			
+
 			function ToggleAssets:ChangeCallback(NewCallback)
 				ConfixToggle.callback = NewCallback
 			end
-			
+
 			return ToggleAssets
 		end
-		
+
 		function TabAssets:AddDropDown(ConfixDropdown : {Title : string;ListValue : {string};callback : FunctionalTest})
 			ConfixDropdown.callback = ConfixDropdown.callback or function() end
 			ConfixDropdown.ListValue = ConfixDropdown.ListValue or {}
@@ -955,7 +955,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 
 			UIGradient_2.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.25), NumberSequenceKeypoint.new(0.75, 0.38), NumberSequenceKeypoint.new(1.00, 1.00)}
 			UIGradient_2.Parent = Dropdown
-			
+
 			Button.MouseButton1Click:Connect(function()
 				if DropDownShowed:GetAttribute('Toggle') then
 					CloseDropdown()
@@ -966,7 +966,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 				local Locked = nil
 				local nexte = false
 				local tickedittt = 0
-				
+
 				table.insert(ColistFUNCTION,DropDownShowed.InputEnded:Connect(function(input)
 					if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
 						if tickedittt >= 15 then
@@ -974,14 +974,14 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 						end
 					end
 				end))
-				
+
 				for i,v : TextButton in ipairs(Buttons) do
 					table.insert(ColistFUNCTION,v.MouseButton1Click:Connect(function()
 						Create_Ripple(v)
 						Locked = v
 					end))
 				end
-				
+
 				repeat task.wait() tickedittt += 1 until nexte ~= false or Locked ~= nil or not DropDownShowed:GetAttribute('Toggle')
 				CloseDropdown()
 				for i,v in ipairs(ColistFUNCTION) do
@@ -994,26 +994,26 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 					ConfixDropdown.callback(Locked.Text)
 				end
 			end)
-			
+
 			function DropDownAssets:ChangeList(NewList)
-				ConfixDropdown.ListValue = DropDownAssets
+				ConfixDropdown.ListValue = NewList
 			end
-			
+
 			function DropDownAssets:Refresh()
 				OnDropDown(ConfixDropdown.ListValue)
 			end
-			
+
 			function DropDownAssets:ChangeCallback(NewCallback)
 				ConfixDropdown.callback = NewCallback
 			end
-			
+
 			function DropDownAssets:ChangeTitle(NewLabel)
 				TextLabel.Text = NewLabel
 			end
-			
+
 			return DropDownAssets;
 		end
-		
+
 		function TabAssets:AddSlider(ConfixSlider : {Title : string; Min : number; Max : number; Increment : number; Callback : FunctionalTest})
 			ConfixSlider.Min = ConfixSlider.Min or 0
 			ConfixSlider.Max = ConfixSlider.Max or 100
@@ -1128,7 +1128,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 			TextLabel.TextWrapped = true
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 			local Touch = false
-			
+
 			MoveButton.InputBegan:Connect(function(Input)
 				if Input.UserInputType == Enum.UserInputType.MouseButton1 then 
 					Touch = true 
@@ -1139,7 +1139,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 					Touch = false 
 				end 
 			end)
-			
+
 			UserinputService.InputChanged:Connect(function(input)
 				if  input.UserInputType == Enum.UserInputType.MouseMovement and Touch then
 					local SizeScale = math.clamp((input.Position.X - Slider_Point.AbsolutePosition.X) / Slider_Point.AbsoluteSize.X, 0, 1)
@@ -1151,7 +1151,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 					ConfixSlider.Callback(ttrs_target)
 				end
 			end)
-			
+
 			function SliderAssets:ChangeConfix(NewCinfix)
 				if NewCinfix then
 					ConfixSlider = NewCinfix 
@@ -1161,26 +1161,26 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 					ConfixSlider.Increment = ConfixSlider.Increment or 1
 				end
 			end
-			
+
 			function SliderAssets:ChangeTitle(NewTitle)
-				
+
 				TextLabel.TextTransparency = 0.7
 				TextLabel.Text = NewTitle
 				Tween:Create(TextLabel,TweenInfo.new(0.2),{TextTransparency = 0.260}):Play()
 			end
-			
+
 			return SliderAssets
 		end
 		return TabAssets
 	end
-	
+
 	function MotrolAssets:Custom(Confix : {WindowSize : UDim2})
 		if Motrol_UI.Enabled then
 			program.Size = Confix.WindowSize
 		end
 		program:SetAttribute('SizeOpen',Confix.WindowSize)
 	end
-	
+
 	local function updateInput(input)
 		local delta = input.Position - dragStart
 		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
@@ -1208,7 +1208,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 			end
 		end
 	end)
-	
+
 	UserinputService.InputBegan:Connect(function(Input)
 		if not IsReady then
 			return
@@ -1226,11 +1226,11 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 			end
 		end
 	end)
-	
+
 	coroutine.wrap(function()
 		OnEffectStart()
 	end)()
-	
+
 	return MotrolAssets
 end
 
