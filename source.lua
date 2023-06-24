@@ -255,6 +255,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 		DropDownShowed:SetAttribute('Toggle',true)
 		DropDownShowed.Position = GetMouseFramePosition(program) + UDim2.new(0,0.500,0,0.100)
 		DropDownShowed.Visible = true
+		ScrollingFrame_2.ZIndex = 100
 		Tween:Create(DropDownShowed,TweenInfo.new(0.5),{Size = UDim2.new(0.2, 0,0.65, 0)}):Play()
 		local TargetButton = {}
 		for i,v in ipairs(ScrollingFrame_2:GetChildren()) do
@@ -276,7 +277,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 						local X = Target.X
 						local Y = Target.Y
 
-						local Position = UDim2.new(0,X,0,Y,0) + UDim2.new(0,640,0,55)
+						local Position = UDim2.new(0,X,0,Y,0) + UDim2.new(0,750,0,75)
 						Tween:Create(DropDownShowed,TweenInfo.new(0.35),{Position = Position}):Play()
 					end
 					if not DropDownShowed:GetAttribute('Toggle') then
