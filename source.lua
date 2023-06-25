@@ -870,6 +870,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 			ConfixDropdown.callback = ConfixDropdown.callback or function() end
 			ConfixDropdown.ListValue = ConfixDropdown.ListValue or {}
 			CloseDropdown() -- re
+			local IsOnDropdow = false
 			local DropDownAssets = {}
 			local Dropdown = Instance.new("Frame")
 			local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
@@ -966,9 +967,11 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 
 			Button.MouseButton1Click:Connect(function()
 				if DropDownShowed:GetAttribute('Toggle') then
+					IsOnDropdow = false
 					CloseDropdown()
 					return
 				end
+				IsOnDropdow = true
 				CloseDropdown()
 				wait()
 				local Buttons = OnDropDown(ConfixDropdown.ListValue,Dropdown)
@@ -994,6 +997,7 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 
 				repeat task.wait() tickedittt += 1 until nexte ~= false or Locked ~= nil or not DropDownShowed:GetAttribute('Toggle')
 				CloseDropdown()
+				IsOnDropdow = false
 				for i,v in ipairs(ColistFUNCTION) do
 					if v then
 						v:Disconnect()
@@ -1010,7 +1014,11 @@ function MotrolUI:CreateWindow(Confix : ConfixStart)
 			end
 
 			function DropDownAssets:Refresh()
-				OnDropDown(ConfixDropdown.ListValue)
+				if not IsOnDropdow then
+					return
+				end
+				IsOnDropdow = false
+				CloseDropdown()
 			end
 
 			function DropDownAssets:ChangeCallback(NewCallback)
